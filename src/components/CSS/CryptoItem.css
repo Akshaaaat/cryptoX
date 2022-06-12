@@ -1,0 +1,18 @@
+.title-CryptoItem{
+    font-weight: 300;
+    margin: 0;
+}
+
+.number-CryptoItem{
+    font-size:19px;
+    margin: 0;
+}
+
+.card-width{
+    width: 17rem;
+}
+
+.card-hover:hover{
+    transform: scale(1.05,1.05);
+    transition: all 0.1s ease-in;
+}
