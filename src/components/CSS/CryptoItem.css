@@ -9,7 +9,17 @@
 }
 
 .card-width{
-    width: 17rem;
+    width: 18rem;
+}
+
+.heading{
+    display:flex;
+}
+
+.heading h5{
+    padding-right: 7px;
+    position: relative;
+    top: -6px;
 }
 
 .card-hover:hover{

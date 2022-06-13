@@ -42,11 +42,13 @@ export default function App(){
           <Home mode={mode} key="home"/>
         } />
         <Route exact path="/cryptocurrency" element={
-          <CryptoCurrency key="crypto"/>
+          <CryptoCurrency mode={mode} key="crypto"/>
         } />
-        <Route exact path="/crypto/:cryptoID" element={
-          <CryptoDetails key="details"/>
-        } />
+        <Route path="/crypto">
+          <Route path=":coinID" element={
+            <CryptoDetails mode={mode} key="details"/>
+          } />
+        </Route>
 
       </Routes>
     </Router>
