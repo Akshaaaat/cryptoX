@@ -12,8 +12,7 @@ import {
 
 export default function App(){
 
-  const [mode, setMode] = useState('light');
-
+  const [mode, setMode] = useState('light');      //Toggle Mode functions
   const toggleMode = () => {
     if (mode === "light") {
       setMode('dark');
@@ -25,24 +24,28 @@ export default function App(){
       document.body.style.backgroundColor = "white";
       document.body.style.color = "black";
     }
-  };
-  
+  }; 
   {
     if (mode==='light') 
     document.body.style.backgroundColor='whitesmoke';
   }
 
+  const [search,setSearch]= useState("");       //Search Functions
+
   return (
     <Router>
 
-      <Navbar mode={mode} toggleMode={toggleMode} />
+      <Navbar mode={mode} setSearch={setSearch} toggleMode={toggleMode} />
       <Routes>
 
         <Route exact path="/" element={
           <Home mode={mode} key="home"/>
         } />
         <Route exact path="/cryptocurrency" element={
-          <CryptoCurrency mode={mode} key="crypto"/>
+          <CryptoCurrency mode={mode} key="crypto" type="crypto"/>
+        } />
+        <Route exact path="/search" element={
+          <CryptoCurrency mode={mode} key="search" type="search" search={search}/>
         } />
         <Route path="/crypto">
           <Route path=":coinID" element={

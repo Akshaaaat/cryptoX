@@ -3,7 +3,7 @@ import CryptoItem from './CryptoItem'
 import Spinner from './Spinner'
 import axios from 'axios';
 
-const CryptoCurrency = (props) => {
+const Search = (props) => {   /* Delete this file if you can get the search done in the cryptocurrency file   */
 
   const options = {
     method: 'GET',
@@ -14,8 +14,7 @@ const CryptoCurrency = (props) => {
       'tiers[0]': '1',
       orderBy: 'marketCap',
       orderDirection: 'desc',
-      search:(props.type==='search')?props.search:'',
-      limit: '80',
+      limit: '60',
       offset: '0'
     },
     headers: {
@@ -41,13 +40,7 @@ const CryptoCurrency = (props) => {
     <div className="container-sm">
       <div style={{height:'72px'}}></div>       {/* This is to leave some area for the fixed navigation bar*/}
     
-      {
-        (props.type==='crypto') && <h2>Top Global Crypto Currencies</h2>
-      }
-      {
-        (props.type==='search') && <h2>Here are the Search Results</h2>
-      }
-
+      <h2>Top Global Crypto Currencies</h2>
       {(!loading) && <div className="d-flex flex-wrap justify-content-center">
       {
         (data?.coins).map((value) => {
@@ -64,4 +57,4 @@ const CryptoCurrency = (props) => {
   )
 }
 
-export default CryptoCurrency
+export default Search
