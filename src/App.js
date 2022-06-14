@@ -35,7 +35,7 @@ export default function App(){
   return (
     <Router>
 
-      <Navbar mode={mode} setSearch={setSearch} toggleMode={toggleMode} />
+      <Navbar mode={mode} search={search} setSearch={setSearch} toggleMode={toggleMode} />
       <Routes>
 
         <Route exact path="/" element={
@@ -44,9 +44,11 @@ export default function App(){
         <Route exact path="/cryptocurrency" element={
           <CryptoCurrency mode={mode} key="crypto" type="crypto"/>
         } />
-        <Route exact path="/search" element={
-          <CryptoCurrency mode={mode} key="search" type="search" search={search}/>
-        } />
+        <Route exact path="/search">
+          <Route exact path=":searchTerm" element={
+            <CryptoCurrency mode={mode} key={search} type="search" search={search}/>
+          } />
+        </Route>
         <Route path="/crypto">
           <Route path=":coinID" element={
             <CryptoDetails mode={mode} key="details"/>

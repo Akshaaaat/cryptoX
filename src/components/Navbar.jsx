@@ -4,6 +4,13 @@ import './Navbar.css';
 
 export default function Navbar(props) {
 
+  const handleSearch = (e) => {
+    props.setSearch(e.target.value);
+    if(e){
+      document.getElementById("searchButton").click();
+    }
+  }
+
   return (
     <>
     <nav className="navbar fixed-top navbar-expand-lg navbar-dark" style={{borderBottom:'1px solid rgb(221 219 230 / 30%)', backgroundColor:'#001429', minHeight:'73px'}}>
@@ -27,9 +34,9 @@ export default function Navbar(props) {
           </ul>
         
           <div className="searchButton d-flex my-2 mx-3">
-            <input type="search" placeholder="Search" onChange={(e) => props.setSearch(e.target.value)} />
-            <Link to="/search">
-              <button className="btn btn-sm btn-outline-info rounded-1 mx-2">Search</button>
+            <input type="search" placeholder="Search" onChange={handleSearch} />
+            <Link to={`/search/${props.search}`}>
+              <button className="btn btn-sm btn-outline-info rounded-1 mx-2" id="searchButton">Search</button>
             </Link>
           </div>
 

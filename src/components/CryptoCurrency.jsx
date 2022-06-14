@@ -39,13 +39,18 @@ const CryptoCurrency = (props) => {
 
   return (
     <div className="container-sm">
-      <div style={{height:'72px'}}></div>       {/* This is to leave some area for the fixed navigation bar*/}
+      <div style={{height:'72px'}}></div>   {/* This is to leave some area for the fixed navigation bar*/}
     
       {
-        (props.type==='crypto') && <h2>Top Global Crypto Currencies</h2>
+        (props.type==='crypto') && <h2>Top Global Crypto Currencies</h2>    //If <CryptoCurrency> component is being used for displaying the top cryptocurrencies, then this will be displayed
       }
-      {
-        (props.type==='search') && <h2>Here are the Search Results</h2>
+      {       // If <CryptoCurrency> component is being used as a search bar then this will be displayed
+        (props.type==='search') && <div>
+          <h2>Here are the Search Results</h2>
+          {
+            (data?.stats?.total===0) && <div>No results found</div>   //This will be displayed if no results are found
+          }
+          </div>
       }
 
       {(!loading) && <div className="d-flex flex-wrap justify-content-center">
