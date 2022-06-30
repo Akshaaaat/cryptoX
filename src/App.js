@@ -21,11 +21,12 @@ export default function App(){
     } 
     else {
       setMode('light')
-      document.body.style.backgroundColor = "white";
+      document.body.style.backgroundColor = "whitesmoke";
       document.body.style.color = "black";
     }
   }; 
   {
+    //We set the default background color to whitesmoke
     if (mode==='light') 
     document.body.style.backgroundColor='whitesmoke';
   }

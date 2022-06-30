@@ -57,7 +57,7 @@ const CryptoCurrency = (props) => {
       {
         (data?.coins).map((value) => {
           return <div className="d-flex justify-content-center"  key={value.name}>
-            <CryptoItem mode={props.mode} rank={value.rank} name={value.name} iconUrl={value.iconUrl} price={value.price} marketCap={value.marketCap} dailyChange={value.change}/>
+            <CryptoItem mode={props.mode} uuid={value.uuid} rank={value.rank} name={value.name} iconUrl={value.iconUrl} price={value.price} marketCap={value.marketCap} dailyChange={value.change}/>
           </div>   
         })
       }
